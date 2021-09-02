@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework Week 5</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="emoji">🌤</h1>
+      <form id="search-form">
+        <input type="text" placeholder="Change city" id="search-text-input" />
+        <input type="submit" value="Search" />
+      </form>
+      <button>Current location</button>
+      <h1 class="city" id="city">city</h1>
+      <h2>temperature</h2>
+      <h4>hello</h4>
+      <div class="row">
+        <div class="col">
+          <span id="now"> Now </span><br />🌤 <br /><span id="tempNow"></span
+          >19°C
+       </div>
+        <div class="col"><span id="oneHour">9pm </span><br />🌤 <br />18°C</div>
+        <div class="col">
+          <span id="twoHours">10pm </span><br />🌤 <br />17°C
+        </div>
+        <div class="col">
+          <span id="threeHours">11pm </span><br />🌤 <br />16°C
+        </div>
+        <div class="col">
+          <span id="fourHours">12am </span><br />🌤 <br />14°C
+        </div>
+        <div class="col">
+          <span id="fiveHours">1am </span><br />🌤 <br />14°C
+        </div>
+      <div class="row2">
+        <div class="col-12">Details for today:</div>
+        <div class="row">
+          <div class="col-6">Humidity: <span id="Humidity"></span></div>
+          <div class="col-6">Wind: <span id="Wind"></span></div>
+          <div class="col-6">Min. temp: <span id="MinTemperature"></span></div>
+          <div class="col-6">Max. temp: <span id="MaxTemperature"></span></div>
+          <div class="col-6">
+            Felt temperature: <span id="FeltTemperature"></span>
+          </div>
+          <div class="col-6">Description: <span id="description"></span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span id="tomorrow"></span> 🌧 50% / 22°C / 12°C
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span id="twoDays"></span> 🌧 70% / 23°C / 13°C
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span id="threeDays"></span> 🌧 90% / 23°C / 14°C
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span id="fourDays"></span>
+          🌧 70% / 22°C / 14°C
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span id="fiveDays"></span> 🌧 80% / 21°C / 14°C
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
