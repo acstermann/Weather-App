@@ -11,9 +11,15 @@ let days = [
 ];
 let day = days[now.getDay()];
 let hour = now.getHours();
+if (hour < 10) {
+  hour = `0${hour}`;
+}
 let minute = now.getMinutes();
+if (minute < 10) {
+  minute = `0${minute}`;
+}
 let h4 = document.querySelector("h4");
-h4.innerHTML = `${day} ${hour}:${minute}`;
+h4.innerHTML = `Last updated on: ${day} ${hour}:${minute}`;
 
 //Hour
 
@@ -79,9 +85,15 @@ form.addEventListener("submit", search);
 
 //show temperature
 function showTemperature(response) {
+  console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("h2");
   temperatureElement.innerHTML = `${temperature} °C`;
+  let overallIcon = document.querySelector("#overall-icon");
+  overallIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 //show details
@@ -134,7 +146,6 @@ searchForm2.addEventListener("submit", searchDetails);
 //button current location
 
 function showPosition(position) {
-  console.log(position);
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let currentLocation = document.querySelector("#city");
