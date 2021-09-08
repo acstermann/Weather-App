@@ -216,7 +216,7 @@ let celsiusTemperature = null;
 //let currentLocation = document.querySelector("#city");
 //currentLocation.innerHTML = `Your latitude is ${lat.value}`;
 //let apiKey = "c524de42a382642a117a494851a42046";
-//let apiUrl = `https://https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}`;
+//let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}`;
 //axios.get(`${apiUrl}&appid=${apiKey}`).then(showHourlyTemp);
 
 //let searchForm3 = document.querySelector("#search-form");
