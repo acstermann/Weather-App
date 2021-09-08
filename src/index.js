@@ -76,6 +76,13 @@ function showTemperature(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  let nowIcon = document.querySelector("#now-icon");
+  nowIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  let nowTemp = document.querySelector("#tempNow");
+  nowTemp.innerHTML = `${temperature} °C`;
   celsiusTemperature = response.data.main.temp;
 }
 

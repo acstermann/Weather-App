@@ -60,7 +60,7 @@ button {
   color: white;
   border-radius: 30px;
 }
-.emoji {
+.icon {
   width: 100px;
   display: block;
   text-align: center;
@@ -74,4 +74,10 @@ button {
 .active:hover {
   text-decoration: none;
   color: black;
+}
+.hour-emoji {
+  width: 50%;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
 }
