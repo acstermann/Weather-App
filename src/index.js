@@ -67,7 +67,6 @@ form.addEventListener("submit", search);
 
 //show temperature
 function showTemperature(response) {
-  console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = `${temperature}`;
@@ -84,6 +83,8 @@ function showTemperature(response) {
   let nowTemp = document.querySelector("#tempNow");
   nowTemp.innerHTML = `${temperature} °C`;
   celsiusTemperature = response.data.main.temp;
+
+  getDailyForecast(response.data.coord);
 }
 
 //show details
@@ -106,6 +107,105 @@ function showDetails(response) {
   let description = response.data.weather[0].description;
   let descriptionElement = document.querySelector("#description");
   descriptionElement.innerHTML = `${description}`;
+}
+
+function showDailyForecast(response) {
+  let nextDayMaxTemp = Math.round(response.data.daily[1].temp.max);
+  let nextDayMinTemp = Math.round(response.data.daily[1].temp.min);
+  let nextDayElement = document.querySelector("#info-tomorrow");
+  let tomorrowIcon = document.querySelector("#tomorrow-icon");
+  tomorrowIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.daily[1].weather[0].icon}@2x.png`
+  );
+  nextDayElement.innerHTML = `${nextDayMaxTemp} °C | ${nextDayMinTemp} °C`;
+
+  let twoDaysMaxTemp = Math.round(response.data.daily[2].temp.max);
+  let twotDaysMinTemp = Math.round(response.data.daily[2].temp.min);
+  let twoDaysElement = document.querySelector("#info-twoDays");
+  let twoDaysIcon = document.querySelector("#twoDays-icon");
+  twoDaysIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.daily[2].weather[0].icon}@2x.png`
+  );
+  twoDaysElement.innerHTML = `${twoDaysMaxTemp} °C | ${twotDaysMinTemp} °C`;
+
+  let threeDaysMaxTemp = Math.round(response.data.daily[3].temp.max);
+  let threeDaysMinTemp = Math.round(response.data.daily[3].temp.min);
+  let threeDaysElement = document.querySelector("#info-threeDays");
+  let threeDaysIcon = document.querySelector("#threeDays-icon");
+  threeDaysIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.daily[3].weather[0].icon}@2x.png`
+  );
+  threeDaysElement.innerHTML = `${threeDaysMaxTemp} °C | ${threeDaysMinTemp} °C`;
+
+  let fourDaysMaxTemp = Math.round(response.data.daily[4].temp.max);
+  let fourDaysMinTemp = Math.round(response.data.daily[4].temp.min);
+  let fourDaysElement = document.querySelector("#info-fourDays");
+  let fourDaysIcon = document.querySelector("#fourDays-icon");
+  fourDaysIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.daily[4].weather[0].icon}@2x.png`
+  );
+  fourDaysElement.innerHTML = `${fourDaysMaxTemp} °C | ${fourDaysMinTemp} °C`;
+
+  let fiveDaysMaxTemp = Math.round(response.data.daily[5].temp.max);
+  let fiveDaysMinTemp = Math.round(response.data.daily[5].temp.min);
+  let fiveDaysElement = document.querySelector("#info-fiveDays");
+  let fiveDaysIcon = document.querySelector("#fiveDays-icon");
+  fiveDaysIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.daily[5].weather[0].icon}@2x.png`
+  );
+  fiveDaysElement.innerHTML = `${fiveDaysMaxTemp} °C | ${fiveDaysMinTemp} °C`;
+}
+
+function showHourlyForecast(response) {
+  let oneHour = Math.round(response.data.hourly[1].temp);
+  let oneHourElement = document.querySelector("#tempOneHour");
+  let oneHourIcon = document.querySelector("#oneHour-icon");
+  oneHourIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.hourly[1].weather[0].icon}@2x.png`
+  );
+  oneHourElement.innerHTML = `${oneHour} °C`;
+
+  let twoHour = Math.round(response.data.hourly[2].temp);
+  let twoHoursElement = document.querySelector("#tempTwoHours");
+  let twoHoursIcon = document.querySelector("#twoHours-icon");
+  twoHoursIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.hourly[2].weather[0].icon}@2x.png`
+  );
+  twoHoursElement.innerHTML = `${twoHour} °C`;
+
+  let threeHour = Math.round(response.data.hourly[3].temp);
+  let threeHoursElement = document.querySelector("#tempThreeHours");
+  let threeHoursIcon = document.querySelector("#threeHours-icon");
+  threeHoursIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.hourly[3].weather[0].icon}@2x.png`
+  );
+  threeHoursElement.innerHTML = `${threeHour} °C`;
+
+  let fourHour = Math.round(response.data.hourly[4].temp);
+  let fourHoursElement = document.querySelector("#tempFourHours");
+  let fourHoursIcon = document.querySelector("#fourHours-icon");
+  fourHoursIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.hourly[4].weather[0].icon}@2x.png`
+  );
+  fourHoursElement.innerHTML = `${fourHour} °C`;
+
+  let fiveHour = Math.round(response.data.hourly[5].temp);
+  let fiveHoursElement = document.querySelector("#tempFiveHours");
+  let fiveHoursIcon = document.querySelector("#fiveHours-icon");
+  fiveHoursIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.hourly[5].weather[0].icon}@2x.png`
+  );
+  fiveHoursElement.innerHTML = `${fiveHour} °C`;
 }
 
 //search the data
@@ -134,6 +234,13 @@ function searchDetails(event) {
 let searchForm2 = document.querySelector("#search-form");
 searchForm2.addEventListener("submit", searchDetails);
 
+function getDailyForecast(coordinates) {
+  let apiKey = "c524de42a382642a117a494851a42046";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(`${apiUrl}`).then(showDailyForecast);
+  axios.get(`${apiUrl}`).then(showHourlyForecast);
+}
+
 //button current location
 
 function showPosition(position) {
@@ -146,6 +253,7 @@ function showPosition(position) {
   axios.get(`${apiUrl2}&appid=${apiKey}`).then(showTempForCurrentLocation);
 }
 function showTempForCurrentLocation(response) {
+  console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = `${temperature}`;
@@ -176,6 +284,17 @@ function getCurrentPosition() {
 }
 let button = document.querySelector("button");
 button.addEventListener("click", getCurrentPosition);
+let button2 = document.querySelector("button");
+button2.addEventListener("click", getDailyForecastWithPosition);
+
+function getDailyForecastWithPosition(position) {
+  console.log(position);
+  let apiKey = "c524de42a382642a117a494851a42046";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(`${apiUrl}`).then(showDailyForecast);
+  axios.get(`${apiUrl}`).then(showHourlyForecast);
+}
 
 //Change to Celsius
 //function showCelsius(event) {
