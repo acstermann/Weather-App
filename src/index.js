@@ -24,17 +24,17 @@ h4.innerHTML = `Last updated on: ${day} ${hour}:${minute}`;
 //Hour
 
 let currentHour = document.querySelector("#now");
-currentHour.innerHTML = [(hour + 0) % 24];
+currentHour.innerHTML = [(now.getHours() + 0) % 24];
 let oneHours = document.querySelector("#oneHour");
-oneHours.innerHTML = [(hour + 1) % 24];
+oneHours.innerHTML = [(now.getHours() + 1) % 24];
 let twoHours = document.querySelector("#twoHours");
-twoHours.innerHTML = [(hour + 2) % 24];
+twoHours.innerHTML = [(now.getHours() + 2) % 24];
 let threeHours = document.querySelector("#threeHours");
-threeHours.innerHTML = [(hour + 3) % 24];
+threeHours.innerHTML = [(now.getHours() + 3) % 24];
 let fourHours = document.querySelector("#fourHours");
-fourHours.innerHTML = [(hour + 4) % 24];
+fourHours.innerHTML = [(now.getHours() + 4) % 24];
 let fiveHours = document.querySelector("#fiveHours");
-fiveHours.innerHTML = [(hour + 5) % 24];
+fiveHours.innerHTML = [(now.getHours() + 5) % 24];
 
 //Days
 let today = now.getDay();
