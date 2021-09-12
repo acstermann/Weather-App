@@ -248,14 +248,15 @@ function getDailyForecast(coordinates) {
 function showPosition(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let currentLocation = document.querySelector(".city");
-  currentLocation.innerHTML = `You have been allocated`;
+
   let apiKey = "c524de42a382642a117a494851a42046";
   let apiUrl2 = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric`;
   axios.get(`${apiUrl2}&appid=${apiKey}`).then(showTempForCurrentLocation);
 }
 function showTempForCurrentLocation(response) {
   console.log(response.data);
+  let currentLocation = document.querySelector(".city");
+  currentLocation.innerHTML = response.data.name;
   let overallIcon = document.querySelector("#overall-icon");
   overallIcon.setAttribute(
     "src",
@@ -292,6 +293,7 @@ function getCurrentPosition() {
 let button = document.querySelector("button");
 button.addEventListener("click", getCurrentPosition);
 
+navigator.geolocation.getCurrentPosition(showPosition);
 //Change to Celsius
 //function showCelsius(event) {
 //event.preventDefault();
