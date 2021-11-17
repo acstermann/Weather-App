@@ -216,7 +216,7 @@ function searchTemp(event) {
   let city = document.querySelector("#search-text-input");
   let selectedCity = document.querySelector("#city");
   selectedCity.innerHTML = city.value;
-  let apiKey = "c524de42a382642a117a494851a42046";
+  let apiKey = "c4c19c451f8b4a9b91d9624a7cb81259";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&units=metric`;
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
 }
@@ -228,7 +228,7 @@ function searchDetails(event) {
   let city = document.querySelector("#search-text-input");
   let selectedCity = document.querySelector("#city");
   selectedCity.innerHTML = city.value;
-  let apiKey = "c524de42a382642a117a494851a42046";
+  let apiKey = "c4c19c451f8b4a9b91d9624a7cb81259";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&units=metric`;
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showDetails);
 }
@@ -237,7 +237,7 @@ let searchForm2 = document.querySelector("#search-form");
 searchForm2.addEventListener("submit", searchDetails);
 
 function getDailyForecast(coordinates) {
-  let apiKey = "c524de42a382642a117a494851a42046";
+  let apiKey = "c4c19c451f8b4a9b91d9624a7cb81259";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(`${apiUrl}`).then(showDailyForecast);
   axios.get(`${apiUrl}`).then(showHourlyForecast);
@@ -249,7 +249,7 @@ function showPosition(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
 
-  let apiKey = "c524de42a382642a117a494851a42046";
+  let apiKey = "c4c19c451f8b4a9b91d9624a7cb81259";
   let apiUrl2 = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric`;
   axios.get(`${apiUrl2}&appid=${apiKey}`).then(showTempForCurrentLocation);
 }
@@ -339,7 +339,7 @@ let celsiusTemperature = null;
 //let lon = position.coords.longitude;
 //let currentLocation = document.querySelector("#city");
 //currentLocation.innerHTML = `Your latitude is ${lat.value}`;
-//let apiKey = "c524de42a382642a117a494851a42046";
+//let apiKey = "c4c19c451f8b4a9b91d9624a7cb81259";
 //let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}`;
 //axios.get(`${apiUrl}&appid=${apiKey}`).then(showHourlyTemp);
 
